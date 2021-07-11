@@ -68,8 +68,6 @@ function eat(){
     var food;
     food="gone"
 };
-      
-  
 
 
 
