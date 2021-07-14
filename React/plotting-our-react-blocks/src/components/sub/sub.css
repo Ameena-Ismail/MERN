@@ -1,0 +1,9 @@
+.cen{
+    background-color: rgb(255,217,102);
+    height: 200px;
+    display: inline-block;
+    width: 122px;
+    vertical-align: top;
+    margin: 5px;
+    padding: 2px;
+}
