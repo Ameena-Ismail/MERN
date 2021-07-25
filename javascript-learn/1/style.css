@@ -1,0 +1,45 @@
+#container{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+#text {
+    font-size: 28px;
+}
+#zar{
+    display: inline-block;
+    padding: 10px 25px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px #999;
+    transition-duration: 0.1s;
+}
+#zar:hover{
+    background-color: red; /*GREEN*/
+    color: white;
+}
+#zar:active{
+    background-color: #3e8e41;
+    box-shadow: 0 0px #666;
+    transform: translateY(4px);
+}
+li{
+    list-style-type: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid #9f9f9f;
+}
+li:hover{
+    background-color: #dfdfdf;
+    transition-duration: 0.2s;
+}
+.selected {
+    background-color: #99ffaa;
+}
