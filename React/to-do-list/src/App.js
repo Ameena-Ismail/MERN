@@ -1,5 +1,5 @@
 import './App.css';
-import ShowComponent from './component/ShowComponent';
+// import ShowComponent from './component/ShowComponent';
 import TodoComponent from './component/todoComponent';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <TodoComponent/>
-      <ShowComponent/>
+      {/* <ShowComponent/> */}
     </div>
   );
 }
