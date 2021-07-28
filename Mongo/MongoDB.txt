@@ -1,0 +1,1785 @@
+
+---
+> use my_first_db
+switched to db my_first_db
+> db.createCollection("students")
+{ "ok" : 1 }
+> show collections
+students
+> show dbs
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+my_first_db  0.000GB
+> db.students.insert({name:"Ameena",home_state:"Ramallah",lucky_number:1,birthday:{month:1,day:1,year:1993}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Islam",home_state:"France",lucky_number:7,birthday:{month:7,day:7,year:1994}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Salma",home_state:"Italy",lucky_number:5,birthday:{month:5,day:5,year:1995}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Abdallah",home_state:"India",lucky_number:6,birthday:{month:6,day:6,year:1996}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Mohammed",home_state:"Russia",lucky_number:8,birthday:{month:12,day:8,year:1998}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        }
+}
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("61011612952efea1c8f16dd5"),
+        "name" : "Abdallah",
+        "home_state" : "India",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 6,
+                "year" : 1996
+        }
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        }
+}
+> db.students.insert({name:"Mildred",home_state:"Venzuela",lucky_number:7,birthday:{month:1,day:7,year:1974}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Ismail",home_state:"Lebanon",lucky_number:4,birthday:{month:12,day:8,year:1988}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        }
+}
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("61011612952efea1c8f16dd5"),
+        "name" : "Abdallah",
+        "home_state" : "India",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 6,
+                "year" : 1996
+        }
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        }
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        }
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        }
+}
+> db.students.find({home_state:"France"}).pretty()
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        }
+}
+> db.students.find({home_state:"Lebanon"}).pretty()
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        }
+}
+> db.students.find({lucky_number:{$gt: 3}}).pretty()
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("61011612952efea1c8f16dd5"),
+        "name" : "Abdallah",
+        "home_state" : "India",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 6,
+                "year" : 1996
+        }
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        }
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        }
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        }
+}
+> db.students.find({lucky_number:{$lte: 10}}).pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        }
+}
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("61011612952efea1c8f16dd5"),
+        "name" : "Abdallah",
+        "home_state" : "India",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 6,
+                "year" : 1996
+        }
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        }
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        }
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        }
+}
+> db.students.find({lucky_number:{$lte: 9,$gte:5}}).pretty()
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("61011612952efea1c8f16dd5"),
+        "name" : "Abdallah",
+        "home_state" : "India",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 6,
+                "year" : 1996
+        }
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        }
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        }
+}
+> db.students.updateMany({},{$set:{'intrests':['coding','reading','mongodb']}})
+{ "acknowledged" : true, "matchedCount" : 7, "modifiedCount" : 7 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("61011612952efea1c8f16dd5"),
+        "name" : "Abdallah",
+        "home_state" : "India",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 6,
+                "year" : 1996
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb"
+        ]
+}
+> db.students.updateMany({},{$addToSet:{intrests:'Cooking'}})
+{ "acknowledged" : true, "matchedCount" : 7, "modifiedCount" : 7 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011612952efea1c8f16dd5"),
+        "name" : "Abdallah",
+        "home_state" : "India",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 6,
+                "year" : 1996
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+> db.students.updateMany({},{$addToSet:{intrests:'mongodb'}})
+{ "acknowledged" : true, "matchedCount" : 7, "modifiedCount" : 0 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011612952efea1c8f16dd5"),
+        "name" : "Abdallah",
+        "home_state" : "India",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 6,
+                "year" : 1996
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+> db.students.updateMany({name:'kamal'},{$addToSet:{intrests:'Learningnewthings'}})
+{ "acknowledged" : true, "matchedCount" : 0, "modifiedCount" : 0 }
+> db.students.find({name:'Ameena'}).pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+> db.students.update({name:'Ameena'},{$pull:{intrests:'cooking'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+> db.students.find({name:'Ameena'}).pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+> db.students.find({name:'Salma'}).pretty()
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+> db.students.update({name:'Islam'},{$pull:{intrests:'mongodb'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find({name:'Islam'}).pretty()
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "Cooking"
+        ]
+}
+> db.students.find({name:'Mildred'}).pretty()
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+> db.students.remove({home_state:'India'})
+WriteResult({ "nRemoved" : 1 })
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011561952efea1c8f16dd3"),
+        "name" : "Islam",
+        "home_state" : "France",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 7,
+                "year" : 1994
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ]
+}
+> db.students.remove({lucky_number:{$gt:3}},true)
+WriteResult({ "nRemoved" : 1 })
+> db.students.updateMany({},{$set:{'number_of_belts':0}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+> db.students.updateMany({home_state:'Ramallah'},{$inc:{'number_of_belts':2}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 2
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "number_of_belts" : 0
+}
+> db.students.updateMany({},{$rename:{'number_of_belts':'Belts'}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "lucky_number" : 1,
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 2
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+> db.students.update({},{$unset:{lucky_number:1}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 2
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+> db.students.updateMany({},{$unset:{lucky_number:1}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 4 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 2
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0
+}
+> db.students.updateMany({},{$set:{'updated_field':'A'}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.updateMany({},{$currentDate:{'updated_field':{$type:'date'}}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 2,
+        "updated_field" : ISODate("2021-07-28T09:03:11.976Z")
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : ISODate("2021-07-28T09:03:11.976Z")
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : ISODate("2021-07-28T09:03:11.976Z")
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : ISODate("2021-07-28T09:03:12.033Z")
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : ISODate("2021-07-28T09:03:12.033Z")
+}
+> db.students.updateMany({},{$currentDate:{'updated_field':{$type:'timestamp'}}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 2,
+        "updated_field" : Timestamp(1627463025, 1)
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : Timestamp(1627463025, 2)
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : Timestamp(1627463025, 3)
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : Timestamp(1627463025, 4)
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : Timestamp(1627463025, 5)
+}
+> db.students.updateMany({},{$currentDate:{'updated_field':{$type:'date'}}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 2,
+        "updated_field" : ISODate("2021-07-28T09:04:51.999Z")
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : ISODate("2021-07-28T09:04:51.999Z")
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : ISODate("2021-07-28T09:04:51.999Z")
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : ISODate("2021-07-28T09:04:52Z")
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : ISODate("2021-07-28T09:04:52Z")
+}
+
+> db.students.updateMany({},{$set:{'updated_field':Date()}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("6101150c952efea1c8f16dd2"),
+        "name" : "Ameena",
+        "home_state" : "Ramallah",
+        "birthday" : {
+                "month" : 1,
+                "day" : 1,
+                "year" : 1993
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 2,
+        "updated_field" : "Wed Jul 28 2021 12:05:38 GMT+0300 (West Bank Gaza Daylight Time)"
+}
+{
+        "_id" : ObjectId("610115b7952efea1c8f16dd4"),
+        "name" : "Salma",
+        "home_state" : "Italy",
+        "birthday" : {
+                "month" : 5,
+                "day" : 5,
+                "year" : 1995
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : "Wed Jul 28 2021 12:05:38 GMT+0300 (West Bank Gaza Daylight Time)"
+}
+{
+        "_id" : ObjectId("61011675952efea1c8f16dd6"),
+        "name" : "Mohammed",
+        "home_state" : "Russia",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1998
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : "Wed Jul 28 2021 12:05:38 GMT+0300 (West Bank Gaza Daylight Time)"
+}
+{
+        "_id" : ObjectId("610116ef952efea1c8f16dd7"),
+        "name" : "Mildred",
+        "home_state" : "Venzuela",
+        "birthday" : {
+                "month" : 1,
+                "day" : 7,
+                "year" : 1974
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : "Wed Jul 28 2021 12:05:38 GMT+0300 (West Bank Gaza Daylight Time)"
+}
+{
+        "_id" : ObjectId("61011754952efea1c8f16dd8"),
+        "name" : "Ismail",
+        "home_state" : "Lebanon",
+        "birthday" : {
+                "month" : 12,
+                "day" : 8,
+                "year" : 1988
+        },
+        "intrests" : [
+                "coding",
+                "reading",
+                "mongodb",
+                "Cooking"
+        ],
+        "Belts" : 0,
+        "updated_field" : "Wed Jul 28 2021 12:05:38 GMT+0300 (West Bank Gaza Daylight Time)"
+}
+
+> exit
+bye
+
+C:\Program Files\MongoDB\Server\5.0\bin>
